@@ -29,17 +29,30 @@ There are two limit types: Hard and Soft. A user can change a soft limit (howeve
    ```sh 
    ulimit -nH
    ```
- To allow all services open a large number of files, you can change the limits in your Linux OS. Update `/etc/security/limits.conf' to make changes permanent. 
+ To allow all services open a large number of files, you can change the limits in your Linux OS. Update `/etc/security/limits.conf` to make changes permanent. 
  ```sh 
   * hard nofile 97816
   * soft nofile 97816
  ```
-1. Reload the terminal after chaning  `/etc/security/limits.conf'
+1. Reload the terminal after chaning  `/etc/security/limits.conf`
    ```sh 
    ulimit -n
    ```
  
 
-# Task 4 
-##
+# Task4 
+## Disk space is 100% utilized on server and most used by /usr/src
+
+1. To see whats taking up the most space in a the server and on usr. 
+   ```sh 
+   du -a / | sort -n -r | head -n 20
+   du -a /usr | sort -n -r | head -n 20
+   ```
+
+1. mostly /usr/src containes packages and libraries which are installed. so we can cleanup unused packages or libraries with below command. 
+   ```sh 
+   package-cleanup --leaves --all
+   ```
+
+1. For other filesystems or directories we can enable logrotate in the cronjob so that it get archive or cleanup automatically. For this we can install logrotate (`yum install logrotate`) or can write a shellscript 
 
