@@ -4,17 +4,17 @@
 The Too many open files message occurs on UNIX and Linux operating systems. The default setting for the maximum number of open files might be too low.  
 1. To get the maximum number of file descriptors your system  
    ```sh 
-     cat /proc/sys/fs/file-max
-   ``
- 1. To check the open file limit for a current user 
+   cat /proc/sys/fs/file-max
+   ```
+1. To check the open file limit for a current user 
     ```sh 
-      ulimit -n 
+    ulimit -n 
     ```
- 1. To list opened files by a specific user 
+1. To list opened files by a specific user 
     ```sh 
-     lsof -u <user>
+    lsof -u <user>
     ```
- 1. To lists all open files belonging to specific PID (process ID)
+1. To lists all open files belonging to specific PID (process ID)
     ```sh 
     lsof -p <process_ID>
     ```
@@ -22,7 +22,7 @@ There are two limit types: Hard and Soft. A user can change a soft limit (howeve
  
 1. To display the soft limit
    ```sh
-     ulimit -nS
+   ulimit -nS
    ```
    
 1. To display the hard limit value
@@ -36,7 +36,7 @@ There are two limit types: Hard and Soft. A user can change a soft limit (howeve
  ```
 1. Reload the terminal after chaning  `/etc/security/limits.conf'
    ```sh 
-     ulimit -n
+   ulimit -n
    ```
  
 
